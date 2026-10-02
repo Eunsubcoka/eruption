@@ -1,14 +1,18 @@
 package com.eruption.eruption.goods.entity;
 
+import com.eruption.eruption.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class GoodsOption {
+public class GoodsOption extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,4 +33,15 @@ public class GoodsOption {
 
     @Column(nullable = false)
     private int maxQty;
+
+    @Builder
+    public GoodsOption(Goods goods, String optionName, int price,
+                       int stockQty, int maxQty) {
+        this.goods = goods;
+        this.optionName = optionName;
+        this.price = price;
+        this.stockQty = stockQty;
+        this.maxQty = maxQty;
+
+    }
 }

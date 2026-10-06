@@ -1,4 +1,4 @@
-package com.eruption.eruption.common;
+package com.eruption.eruption.global.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

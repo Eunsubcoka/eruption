@@ -1,7 +1,7 @@
 package com.eruption.eruption.payments.entity;
 
 
-import com.eruption.eruption.common.BaseTimeEntity;
+import com.eruption.eruption.global.common.BaseTimeEntity;
 import com.eruption.eruption.order.entity.Orders;
 import com.eruption.eruption.payments.enums.PaymentStatus;
 import jakarta.persistence.*;
@@ -42,8 +42,7 @@ public class Payment extends BaseTimeEntity {
 
 
     @Builder
-    public Payment(Orders orders, String paymentKey, int amt, PaymentStatus status,
-                   LocalDateTime approvedAt){
+    public Payment(Orders orders, String paymentKey, int amt){
         this.orders = orders;
         this.paymentKey = paymentKey;
         this.amt = amt;

@@ -1,6 +1,6 @@
 package com.eruption.eruption.order.entity;
 
-import com.eruption.eruption.common.BaseTimeEntity;
+import com.eruption.eruption.global.common.BaseTimeEntity;
 import com.eruption.eruption.goods.entity.GoodsOption;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -8,12 +8,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "order_items")
 public class OrderItem extends BaseTimeEntity {
 
     @Id

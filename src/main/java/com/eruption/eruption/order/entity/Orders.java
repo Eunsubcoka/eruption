@@ -1,6 +1,6 @@
 package com.eruption.eruption.order.entity;
 
-import com.eruption.eruption.common.BaseTimeEntity;
+import com.eruption.eruption.global.common.BaseTimeEntity;
 import com.eruption.eruption.order.enums.OrderStatus;
 import com.eruption.eruption.user.entity.User;
 import jakarta.persistence.*;
@@ -8,7 +8,6 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.core.annotation.Order;
 
 import java.time.LocalDateTime;
 
@@ -25,7 +24,7 @@ public class Orders extends BaseTimeEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String orderNo;
 
     @Column(nullable = false)
@@ -46,7 +45,7 @@ public class Orders extends BaseTimeEntity {
                   LocalDateTime expiredAt){
         this.user = user;
         this.orderNo = orderNo;
-        this.status = status;
+        this.status = OrderStatus.PENDING_PAYMENT;
         this.totalAmt = totalAmt;
         this.expiredAt = expiredAt;
     }

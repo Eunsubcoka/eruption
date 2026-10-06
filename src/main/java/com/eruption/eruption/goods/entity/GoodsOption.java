@@ -1,13 +1,11 @@
 package com.eruption.eruption.goods.entity;
 
-import com.eruption.eruption.common.BaseTimeEntity;
+import com.eruption.eruption.global.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Getter

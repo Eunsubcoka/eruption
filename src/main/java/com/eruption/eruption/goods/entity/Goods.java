@@ -1,6 +1,6 @@
 package com.eruption.eruption.goods.entity;
 
-import com.eruption.eruption.common.BaseTimeEntity;
+import com.eruption.eruption.global.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;

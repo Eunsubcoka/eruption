@@ -1,6 +1,6 @@
 package com.eruption.eruption.user.entity;
 
-import com.eruption.eruption.common.BaseTimeEntity;
+import com.eruption.eruption.global.common.BaseTimeEntity;
 import com.eruption.eruption.user.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AccessLevel;

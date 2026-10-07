@@ -1,5 +1,6 @@
 package com.eruption.eruption.goods.entity;
 
+import com.eruption.eruption.global.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Goods {
+public class Goods extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +29,7 @@ public class Goods {
 
     @Column(nullable = false)
     private LocalDateTime reservationEndAt;
+
 
     @Builder
     public Goods(String title, String description,

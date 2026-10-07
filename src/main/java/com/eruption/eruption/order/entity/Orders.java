@@ -41,7 +41,7 @@ public class Orders extends BaseTimeEntity {
 
 
     @Builder
-    public Orders(User user, String orderNo, int totalAmt,OrderStatus status,
+    public Orders(User user, String orderNo, int totalAmt,
                   LocalDateTime expiredAt){
         this.user = user;
         this.orderNo = orderNo;

@@ -1,6 +1,7 @@
 package com.eruption.eruption.goods.service;
 
-import com.eruption.eruption.global.exception.GoodsNotFoundException;
+import com.eruption.eruption.global.exception.BusinessException;
+import com.eruption.eruption.global.exception.ErrorCode;
 import com.eruption.eruption.goods.dto.GoodsDetailResponse;
 import com.eruption.eruption.goods.dto.GoodsListResponse;
 import com.eruption.eruption.goods.entity.Goods;
@@ -32,7 +33,7 @@ public class GoodsService {
     @Transactional(readOnly = true)
     public GoodsDetailResponse getGoodsDetail(Long goodsId) {
         Goods goods = goodsRepository.findById(goodsId)
-                .orElseThrow(GoodsNotFoundException::new);
+                .orElseThrow(() -> new BusinessException(ErrorCode.GOODS_NOT_FOUND));
         List<GoodsOption> options = goodsOptionRepository.findByGoodsId(goodsId);
 
         return GoodsDetailResponse.of(goods,options);

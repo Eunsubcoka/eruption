@@ -1,6 +1,7 @@
 package com.eruption.eruption.user.service;
 
-import com.eruption.eruption.global.exception.DuplicateEmailException;
+import com.eruption.eruption.global.exception.BusinessException;
+import com.eruption.eruption.global.exception.ErrorCode;
 import com.eruption.eruption.user.dto.SignUpRequest;
 import com.eruption.eruption.user.dto.SignUpResponse;
 import com.eruption.eruption.user.entity.User;
@@ -20,8 +21,8 @@ public class UserService {
 
     @Transactional
     public SignUpResponse signUp(SignUpRequest signUpRequest) {
-        if(userRepository.existsByEmail(signUpRequest.email())){
-            throw new DuplicateEmailException();
+        if (userRepository.existsByEmail(signUpRequest.email())) {
+            throw new BusinessException(ErrorCode.DUPLICATE_EMAIL);
         }
         User user = User.builder()
                 .email(signUpRequest.email())

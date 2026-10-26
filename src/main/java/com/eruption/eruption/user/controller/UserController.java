@@ -1,5 +1,6 @@
 package com.eruption.eruption.user.controller;
 
+import com.eruption.eruption.global.exception.ApiResponse;
 import com.eruption.eruption.user.dto.SignUpRequest;
 import com.eruption.eruption.user.dto.SignUpResponse;
 import com.eruption.eruption.user.service.UserService;
@@ -21,7 +22,9 @@ public class UserController {
 
     // 회원가입 api
     @PostMapping
-    public ResponseEntity<SignUpResponse> signUp(@Valid @RequestBody SignUpRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.signUp(request));
+    public ResponseEntity<ApiResponse<SignUpResponse>> signUp(@Valid @RequestBody SignUpRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(ApiResponse.ok(userService.signUp(request)));
     }
+
 }

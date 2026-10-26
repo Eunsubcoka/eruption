@@ -1,3 +1,7 @@
+jwt:
+  secret: ${JWT_SECRET}
+  access-expiration: 30
+
 spring:
   application:
     name: eruption
@@ -13,6 +17,3 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  jwt:
-    secret: ${JWT_SECRET}
-    access-expiration: 3000

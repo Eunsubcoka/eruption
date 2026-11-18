@@ -1,6 +1,8 @@
 package com.eruption.eruption.goods.entity;
 
 import com.eruption.eruption.global.common.BaseTimeEntity;
+import com.eruption.eruption.global.exception.BusinessException;
+import com.eruption.eruption.global.exception.ErrorCode;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -31,6 +33,13 @@ public class GoodsOption extends BaseTimeEntity {
 
     @Column(nullable = false)
     private int maxQty;
+
+    public void decreaseStock(int qty) {
+        if(qty <= 0) throw new BusinessException(ErrorCode.INVALID_INPUT);
+        if(qty > maxQty) throw new BusinessException(ErrorCode.EXCEED_MAX_QTY);
+        if(stockQty < qty) throw new BusinessException(ErrorCode.OUT_OF_STOCK);
+        this.stockQty -= qty;
+    }
 
     @Builder
     public GoodsOption(Goods goods, String optionName, int price,

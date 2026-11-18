@@ -18,7 +18,11 @@ public enum ErrorCode {
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "UNAUTHORIZED", "인증이 필요합니다."),
     FORBIDDEN(HttpStatus.FORBIDDEN, "FORBIDDEN", "접근 권한이 없습니다."),
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "INTERNAL_SERVER_ERROR", "서버 내부 오류가 발생했습니다."),
-    INVALID_REFRESH_TOKEN(HttpStatus.UNAUTHORIZED,"INVALID_REFRESH_TOKEN","토큰이 올바르지 않습니다.");
+    INVALID_REFRESH_TOKEN(HttpStatus.UNAUTHORIZED,"INVALID_REFRESH_TOKEN","토큰이 올바르지 않습니다."),
+    GOODS_OPTION_NOT_FOUND(HttpStatus.NOT_FOUND, "GOODS_OPTION_NOT_FOUND", "존재하지 않는 옵션입니다."),
+    RESERVATION_NOT_OPEN(HttpStatus.CONFLICT, "RESERVATION_NOT_OPEN", "예약 시작 전입니다."),
+    RESERVATION_CLOSED(HttpStatus.CONFLICT, "RESERVATION_CLOSED", "예약이 마감되었습니다."),
+    EXCEED_MAX_QTY(HttpStatus.BAD_REQUEST, "EXCEED_MAX_QTY", "최대 구매 수량을 초과했습니다.");
 
     private final HttpStatus status;
     private final String code;

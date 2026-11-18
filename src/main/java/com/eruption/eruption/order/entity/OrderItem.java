@@ -33,10 +33,13 @@ public class OrderItem extends BaseTimeEntity {
 
 
     @Builder
-    public OrderItem(GoodsOption goodsOption, Orders orders, int qty, int price) {
+    public OrderItem(GoodsOption goodsOption, int qty, int price) {
         this.goodsOption = goodsOption;
-        this.orders = orders;
         this.qty = qty;
         this.price = price;
+    }
+
+    public void assignOrders(Orders orders) {
+        this.orders = orders;
     }
 }

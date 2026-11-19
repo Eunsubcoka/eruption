@@ -1,0 +1,5 @@
+# dev 프로파일: 스키마 마이그레이션 + 더미 데이터(시드)를 함께 적용한다.
+# 이 파일에 없는 설정(datasource, jwt 등)은 application.yml 값을 그대로 쓴다.
+spring:
+  flyway:
+    locations: classpath:db/migration,classpath:db/seed
